@@ -16,7 +16,6 @@
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config">
 
-        <!-- LOGIN ACTIVITY - EZ INDUL EL -->
         <activity
             android:name=".ui.main.LoginActivity"
             android:exported="true">
@@ -28,7 +27,6 @@
 
         </activity>
 
-        <!-- MAIN ACTIVITY - NEM INDUL EL, csak login után -->
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true" />
