@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textAboutTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FlyHigh – Android beadandó"
+            android:textStyle="bold"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textAboutAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Készítette: Bence Mulati
+Neumann János Egyetem
+Programtervező informatikus" />
+
+        <TextView
+            android:id="@+id/textAboutDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Az alkalmazás a FlyHigh repülőjegy-foglaló rendszer Android kliens alkalmazása.
+
+Fő funkciók:
+• Bejelentkezés (felhasználónév/jelszó)
+• Saját megvásárolt jegyek listázása
+• Forgalomban lévő jegyek (járatok) megjelenítése
+• Admin felhasználólista megjelenítése
+• Backend: ASP.NET Core Web API, MySQL adatbázis
+• Kliens: Retrofit, Fragments, RecyclerView" />
+    </LinearLayout>
+</ScrollView>
