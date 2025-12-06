@@ -18,4 +18,12 @@ public interface UseradatokApi {
     @POST("api/Useradatok/login")
     Call<LoginTokenResponse> login(@Body LoginRequest request);
 
+    @GET("api/Useradatok")
+    Call<List<UserModel>> getOsszesUser();
+
+    @PUT("api/Useradatok/{id}")
+    Call<Void> updateUser(@Path("id") int id, @Body UserModel user);
+
+    @DELETE("api/Useradatok/{id}")
+    Call<Void> deleteUser(@Path("id") int id);
 }

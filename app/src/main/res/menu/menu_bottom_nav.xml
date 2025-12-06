@@ -11,5 +11,11 @@
         android:title="Gépek"
         android:icon="@android:drawable/ic_menu_sort_by_size" />
 
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profil"
+        android:icon="@android:drawable/ic_menu_sort_by_size" />
+
+
 
 </menu>
