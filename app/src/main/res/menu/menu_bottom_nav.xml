@@ -21,5 +21,10 @@
         android:title="Jegy vásárlás"
         android:icon="@android:drawable/ic_menu_sort_by_size" />
 
+<item
+        android:id="@+id/nav_admin"
+        android:title="Admin"
+        android:icon="@mipmap/ic_launcher" />
+
 
 </menu>
