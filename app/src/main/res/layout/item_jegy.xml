@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/textRoute"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Budapest → London"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textTimes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Indulás: 12:30   Érkezés: 14:50"
+        android:layout_marginTop="6dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textRoute"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textClassPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Osztály: Turista  |  Ár: 38 000 Ft"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textTimes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textSeats"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Székek: 71, 109"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textClassPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
