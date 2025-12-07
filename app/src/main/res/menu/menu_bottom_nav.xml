@@ -16,6 +16,10 @@
         android:title="Profil"
         android:icon="@android:drawable/ic_menu_sort_by_size" />
 
+ <item
+        android:id="@+id/nav_jegyadatok"
+        android:title="Jegy vásárlás"
+        android:icon="@android:drawable/ic_menu_sort_by_size" />
 
 
 </menu>
