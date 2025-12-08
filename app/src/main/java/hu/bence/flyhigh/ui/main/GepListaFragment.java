@@ -1,9 +1,12 @@
 package hu.bence.flyhigh.ui.main;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -29,8 +32,10 @@ public class GepListaFragment extends Fragment {
 
     private RecyclerView recyclerGepek;
     private ProgressBar progressBar;
+    private EditText editSearch;
+
     private GepAdapter adapter;
-    private List<GepAdatokModel> gepek = new ArrayList<>();
+    private List<GepAdatokModel> teljesLista = new ArrayList<>();
 
     public GepListaFragment() {}
 
@@ -39,7 +44,6 @@ public class GepListaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_gep_lista, container, false);
     }
 
@@ -50,12 +54,43 @@ public class GepListaFragment extends Fragment {
 
         recyclerGepek = view.findViewById(R.id.recyclerGepek);
         progressBar = view.findViewById(R.id.progressBarGepek);
+        editSearch = view.findViewById(R.id.editSearchGep);
 
         recyclerGepek.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new GepAdapter(gepek);
+        adapter = new GepAdapter(new ArrayList<>());
         recyclerGepek.setAdapter(adapter);
 
+        initSearch();
         loadGepek();
+    }
+
+    private void initSearch() {
+        editSearch.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filterGepek(s.toString());
+            }
+            @Override public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void filterGepek(String query) {
+        if (teljesLista == null) return;
+
+        String q = query.trim().toLowerCase();
+        if (q.isEmpty()) {
+            adapter.updateData(new ArrayList<>(teljesLista));
+            return;
+        }
+
+        List<GepAdatokModel> szurt = new ArrayList<>();
+        for (GepAdatokModel g : teljesLista) {
+            if (g.getGepneve() != null &&
+                    g.getGepneve().toLowerCase().contains(q)) {
+                szurt.add(g);
+            }
+        }
+        adapter.updateData(szurt);
     }
 
     private void loadGepek() {
@@ -70,7 +105,8 @@ public class GepListaFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    adapter.updateData(response.body());
+                    teljesLista = response.body();
+                    adapter.updateData(new ArrayList<>(teljesLista));
                 } else {
                     Toast.makeText(getContext(),
                             "Nem sikerült betölteni a gépadatokat.",

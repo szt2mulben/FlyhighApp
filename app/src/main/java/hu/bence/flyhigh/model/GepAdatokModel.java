@@ -1,8 +1,25 @@
 package hu.bence.flyhigh.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class GepAdatokModel {
+
+    @SerializedName("Id")
     private int id;
+
+    @SerializedName("Gepneve")
     private String gepneve;
+
+    @SerializedName("Foglaltturista")     
+    private int foglaltTurista;
+
+    @SerializedName("Foglalt1oszt")       
+
+    @SerializedName("Elsoosztulohelyek")
+    private int elsoOsztUlohelyek;
+
+    @SerializedName("Turistaulohelyek")
+    private int turistaUlohelyek;
 
     public int getId() {
         return id;
@@ -12,11 +29,19 @@ public class GepAdatokModel {
         return gepneve;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getFoglaltTurista() {
+        return foglaltTurista;
     }
 
-    public void setGepneve(String gepneve) {
-        this.gepneve = gepneve;
+    public int getFoglaltElsoOsztaly() {
+        return foglaltElsoOsztaly;
+    }
+
+    public int getElsoOsztUlohelyek() {
+        return elsoOsztUlohelyek;
+    }
+
+    public int getTuristaUlohelyek() {
+        return turistaUlohelyek;
     }
 }
