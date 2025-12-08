@@ -8,7 +8,7 @@ public class SessionManager {
     private int userId;
     private String name;
     private String permission;
-
+    private String email;   
     private SessionManager() {}
 
     public static SessionManager getInstance() {
@@ -23,19 +23,25 @@ public class SessionManager {
         this.permission = permission;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getToken() { return token; }
     public int getUserId() { return userId; }
     public String getName() { return name; }
     public String getPermission() { return permission; }
+    public String getEmail() { return email; }   
 
     public boolean isAdmin() {
         return permission != null && permission.equalsIgnoreCase("admin");
     }
+
     public void clear() {
         token = null;
         userId = 0;
         name = null;
         permission = null;
+        email = null;
     }
-
 }
